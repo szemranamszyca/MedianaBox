@@ -23,7 +23,6 @@ int SimpleVec::get(int index) const
 void SimpleVec::set(int value, int index)
 {
     vecData_[index] = value;
-    ++vecSize_;
 }
 
 void SimpleVec::insert(int value, int index)
