@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.9.1)
 
-project(mediana_box)
+project(medianabox)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -50,7 +50,7 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
 add_subdirectory(containers/src)
 
-add_executable(MedianaBox ${PROJECT_SOURCE_DIR}/main.cpp)
+add_executable(MedianaBox ${PROJECT_SOURCE_DIR}/main.cpp src/Calculator.cpp)
 target_link_libraries(
     MedianaBox
     PUBLIC SimpleVec
