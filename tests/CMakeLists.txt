@@ -72,4 +72,4 @@ target_compile_options(project_warnings
             # (ie printf)
 )
 
-add_subdirectory(testTmp)
+add_subdirectory(testSimpleVec)
