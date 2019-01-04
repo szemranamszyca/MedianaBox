@@ -45,3 +45,20 @@ TEST_F(TestSimpleVec, ShouldAddMoreValues)
     ASSERT_EQ(10, simpleVec_[1]);
     ASSERT_EQ(25, simpleVec_[4]);
 }
+
+TEST_F(TestSimpleVec, ShouldInsertNewValueOnCorrectPlace)
+{
+    simpleVec_.push_back(5);
+    simpleVec_.push_back(10);
+    simpleVec_.push_back(15);
+    simpleVec_.push_back(20);
+    simpleVec_.push_back(25);
+    ASSERT_EQ(5, simpleVec_.size());
+    
+    simpleVec_.insert(12, 2);
+    EXPECT_EQ(10, simpleVec_[1]);
+    EXPECT_EQ(12, simpleVec_[2]);
+    EXPECT_EQ(15, simpleVec_[3]);
+    EXPECT_EQ(25, simpleVec_[5]);
+    ASSERT_EQ(6, simpleVec_.size());
+}

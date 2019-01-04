@@ -26,7 +26,14 @@ void SimpleVec::set(int value, int index)
 }
 
 void SimpleVec::insert(int value, int index)
-{}
+{
+    push_back(0);
+    for(int i = vecSize_-1; i >= index; i--)
+    {
+        vecData_[i] = vecData_[i-1];  
+    }
+    vecData_[index] = value;
+}
 
 void SimpleVec::push_back(int value)
 {
