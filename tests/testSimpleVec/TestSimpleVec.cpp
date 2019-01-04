@@ -23,3 +23,13 @@ TEST_F(TestSimpleVec, ShouldPushBackAndReturnIt)
     simpleVec_.push_back(5);
     ASSERT_EQ(5, simpleVec_[0]);
 }
+
+TEST_F(TestSimpleVec, ShouldReturnCorrectSize)
+{
+    simpleVec_.push_back(5);
+    ASSERT_EQ(1, simpleVec_.size());
+    
+    simpleVec_.push_back(10);
+    simpleVec_.push_back(15);
+    ASSERT_EQ(3, simpleVec_.size());
+}
