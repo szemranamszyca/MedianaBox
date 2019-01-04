@@ -33,3 +33,15 @@ TEST_F(TestSimpleVec, ShouldReturnCorrectSize)
     simpleVec_.push_back(15);
     ASSERT_EQ(3, simpleVec_.size());
 }
+
+TEST_F(TestSimpleVec, ShouldAddMoreValues)
+{
+    simpleVec_.push_back(5);
+    simpleVec_.push_back(10);
+    simpleVec_.push_back(15);
+    simpleVec_.push_back(20);
+    simpleVec_.push_back(25);
+    ASSERT_EQ(5, simpleVec_.size());
+    ASSERT_EQ(10, simpleVec_[1]);
+    ASSERT_EQ(25, simpleVec_[4]);
+}

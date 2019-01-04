@@ -30,6 +30,11 @@ void SimpleVec::insert(int value, int index)
 
 void SimpleVec::push_back(int value)
 {
+    if (vecSize_ >= vecCapacity_)
+    {
+        increaseVecCapacity();
+    }
+
     vecData_[vecSize_] = value;
     ++vecSize_;
 }
@@ -49,7 +54,17 @@ std::size_t SimpleVec::size() const
     return vecSize_;
 }
 
-
+void SimpleVec::increaseVecCapacity()
+{
+    int* newVecData = new int[2 * vecCapacity_];
+    for(int i = 0; i < vecSize_; i++)
+    {
+        newVecData[i] = vecData_[i];
+    }
+    delete[] vecData_;
+    vecData_ = newVecData;
+    vecCapacity_ *= 2;
+}
 
 } // namespace containers
 } // namespace medianabox

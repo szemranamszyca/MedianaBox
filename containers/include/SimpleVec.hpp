@@ -20,6 +20,7 @@ class SimpleVec : public ISimpleVec
         std::size_t size() const override;
     
     private:
+        void increaseVecCapacity();
         int* vecData_;
         std::size_t vecSize_;
         std::size_t vecCapacity_;
