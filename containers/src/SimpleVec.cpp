@@ -15,20 +15,20 @@ SimpleVec::~SimpleVec()
     delete[] vecData_;
 }
 
-int SimpleVec::get(int index) const
+int SimpleVec::get(std::size_t index) const
 {
     return vecData_[index];
 }
 
-void SimpleVec::set(int value, int index)
+void SimpleVec::set(int value, std::size_t index)
 {
     vecData_[index] = value;
 }
 
-void SimpleVec::insert(int value, int index)
+void SimpleVec::insert(int value, std::size_t index)
 {
     push_back(0);
-    for(int i = vecSize_-1; i >= index; i--)
+    for(int i = vecSize_-1; i > index; i--)
     {
         vecData_[i] = vecData_[i-1];  
     }
@@ -46,12 +46,12 @@ void SimpleVec::push_back(int value)
     ++vecSize_;
 }
 
-int& SimpleVec::operator[](int index)
+int& SimpleVec::operator[](std::size_t index)
 {
     return vecData_[index];
 }
 
-const int& SimpleVec::operator[](int index) const 
+const int& SimpleVec::operator[](std::size_t index) const 
 {
     return vecData_[index];
 }
