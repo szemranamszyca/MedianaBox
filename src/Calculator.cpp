@@ -23,7 +23,15 @@ void Calculator::insert(int value)
 
 double Calculator::calculate() const
 {
-    return 1.0;
+    auto size = container_->size();
+    if (size % 2 != 0)
+    {
+        return (*container_)[size/2];
+    }
+    else
+    {
+        return ((*container_)[size/2] + (*container_)[size/2-1])/2.0;
+    }
 }
 
 void Calculator::dbgPrintMedianaBox()

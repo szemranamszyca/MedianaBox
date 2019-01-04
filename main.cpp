@@ -12,10 +12,12 @@ int main()
     mb.insert(2);
     mb.insert(8);
     mb.dbgPrintMedianaBox();
+    std::cout << "Mediana: " << mb.calculate() << '\n';
     mb.insert(1);
     mb.insert(54);
     mb.insert(23);
     mb.dbgPrintMedianaBox();
+    std::cout << "Mediana: " << mb.calculate() << '\n';
 
     return 0;
 }
