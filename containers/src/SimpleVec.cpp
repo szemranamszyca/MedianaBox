@@ -4,38 +4,50 @@ namespace medianabox {
 namespace containers {
 
 SimpleVec::SimpleVec() : 
-    vecSize(0),
-    vecCapacity(4)
-{}
+    vecSize_(0),
+    vecCapacity_(4)
+{
+    vecData_ = new int[vecCapacity_];
+}
 
 SimpleVec::~SimpleVec()
-{}
-
+{
+    delete[] vecData_;
+}
 
 int SimpleVec::get(int i) const
 {
-    return 0;
+    return vecData_[i];
 }
 
-void SimpleVec::set(int value, int i)
-{}
+void SimpleVec::set(int value, int index)
+{
+    vecData_[index] = value;
+}
 
-void SimpleVec::insert(int value, int place)
+void SimpleVec::insert(int value, int index)
 {}
 
 void SimpleVec::push_back(int value)
-{}
-
-int& SimpleVec::operator[](int i)
 {
-    int tmp = 0;
-    return tmp;
+    vecData_[vecSize_] = value;
 }
 
-const int& SimpleVec::operator[](int i) const 
+int& SimpleVec::operator[](int index)
 {
-    return 0;
+    return vecData_[index];
 }
+
+const int& SimpleVec::operator[](int index) const 
+{
+    return vecData_[index];
+}
+
+std::size_t SimpleVec::size() const
+{
+    return vecSize_;
+}
+
 
 
 } // namespace containers

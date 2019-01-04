@@ -1,7 +1,6 @@
 #ifndef SIMPLEVEC_HPP
 #define SIMPLEVEC_HPP
 
-#include <cstddef>
 #include "ISimpleVec.hpp"
 
 namespace medianabox {
@@ -18,11 +17,12 @@ class SimpleVec : public ISimpleVec
         void push_back(int) override;
         int& operator[](int)  override;
         const int& operator[](int) const override;
+        std::size_t size() const override;
     
     private:
-        int* vecData;
-        std::size_t vecSize;
-        std::size_t vecCapacity;
+        int* vecData_;
+        std::size_t vecSize_;
+        std::size_t vecCapacity_;
 
 };
 

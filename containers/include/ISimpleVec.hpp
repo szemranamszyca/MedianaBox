@@ -1,6 +1,8 @@
 #ifndef ISIMPLEVEC_HPP
 #define ISIMPLEVEC_HPP
 
+#include <cstddef>
+
 namespace medianabox {
 namespace containers {
 
@@ -13,6 +15,7 @@ class ISimpleVec
         virtual void push_back(int) = 0;
         virtual int& operator[](int)  = 0;
         virtual const int& operator[](int) const = 0;
+        virtual std::size_t size() const = 0;
 };
 
 } // namespace containers
