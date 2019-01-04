@@ -1,34 +1,39 @@
 #include <iostream>
+#include <memory>
+
 #include "containers/include/SimpleVec.hpp"
 
-class IMedianaBox
+class ICalculator
 {
     public:
-        virtual ~IMedianaBox(){};
+        virtual ~ICalculator(){};
         virtual void insert(int) = 0;
         virtual double calculate() = 0;
 };
 
-class MedianaBox : public IMedianaBox
-{
+class Calculator : public ICalculator
+{ 
 public:
+    Calculator(std::unique_ptr<medianabox::containers::ISimpleContainer> container) :
+        container_(move(container))
+    {}
     void insert(int value) override
     {
-        if (container_.size() == 0)
+        if (container_->size() == 0)
         {
-            container_.push_back(value);
+            container_->push_back(value);
         }
         else
         {
-            for(std::size_t i = 0; i < container_.size(); i++)
+            for(std::size_t i = 0; i < container_->size(); i++)
             {
-                if (value < container_[i])
+                if (value < (*container_)[i])
                 {
-                    container_.insert(value, i);
+                    container_->insert(value, i);
                     return;
                 }
             }
-            container_.push_back(value);
+            container_->push_back(value);
         }
     }
 
@@ -40,21 +45,21 @@ public:
     void dbgPrintMedianaBox()
     {
         std::cout << "DEBUG PRINT: \n";
-        for(std::size_t i = 0; i < container_.size(); ++i)
+        for(std::size_t i = 0; i < container_->size(); ++i)
         {
-            std::cout << container_[i] << " ";
+            std::cout << (*container_)[i] << " ";
         }
         std::cout << '\n';
     }
     
     private:
-        medianabox::containers::SimpleVec container_; 
+        std::unique_ptr<medianabox::containers::ISimpleContainer> container_; 
 };
 
 int main()
 {
     std::cout << "Welcome to MedianaBox!\n";
-    MedianaBox mb;
+    Calculator mb(std::make_unique<medianabox::containers::SimpleVec>());
     mb.insert(5);
     mb.insert(2);
     mb.insert(8);
