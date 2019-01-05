@@ -1,3 +1,5 @@
+#include <exception>
+#include <iostream>
 #include "../include/SimpleVec.hpp"
 
 namespace medianabox {
@@ -17,11 +19,21 @@ SimpleVec::~SimpleVec()
 
 int SimpleVec::get(std::size_t index) const
 {
+    if (index >= vecSize_)
+    {
+        throw std::out_of_range("Range error");
+    }
+
     return vecData_[index];
 }
 
 void SimpleVec::set(int value, std::size_t index)
 {
+    if (index >= vecSize_)
+    {
+        throw std::out_of_range("Range error");
+    }
+
     vecData_[index] = value;
 }
 

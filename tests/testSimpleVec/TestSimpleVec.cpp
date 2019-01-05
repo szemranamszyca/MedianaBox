@@ -8,12 +8,14 @@ using namespace medianabox::containers;
 
 TEST_F(TestSimpleVec, ShouldReturnSetElement)
 {
+    simpleVec_.push_back(0);
     simpleVec_.set(3,0);
     ASSERT_EQ(3, simpleVec_.get(0));
 }
 
 TEST_F(TestSimpleVec, ShouldReturnSetElementUsingOperator)
 {
+    simpleVec_.push_back(0);
     simpleVec_.set(3,0);
     ASSERT_EQ(3, simpleVec_[0]);
 }
@@ -63,7 +65,7 @@ TEST_F(TestSimpleVec, ShouldInsertNewValueOnCorrectPlace)
     ASSERT_EQ(6, simpleVec_.size());
 }
 
-TEST_F(TestSimpleVec, tmp)
+TEST_F(TestSimpleVec, ShouldWorksCorectlyOnOneElement)
 {
     simpleVec_.push_back(5);
     EXPECT_EQ(5, simpleVec_[0]);
@@ -71,4 +73,15 @@ TEST_F(TestSimpleVec, tmp)
     EXPECT_EQ(2, simpleVec_[0]);
     EXPECT_EQ(5, simpleVec_[1]);
     ASSERT_EQ(2, simpleVec_.size());
+}
+
+TEST_F(TestSimpleVec, ShouldThrowIfGetIsOutOfRange)
+{
+    simpleVec_.push_back(5);
+    ASSERT_THROW(simpleVec_.get(1), std::out_of_range);
+}
+
+TEST_F(TestSimpleVec, ShouldThrowIfSetIsOutOfRange)
+{
+    ASSERT_THROW(simpleVec_.set(3,0), std::out_of_range);
 }
