@@ -16,4 +16,4 @@ target_link_libraries(
 )
 
 add_test(NAME TestCalculator
-COMMAND TestCalculator WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+COMMAND TestCalculator WORKING_DIRECTORY ${EXECUTABLE_OUTPUT_PATH})
