@@ -18,5 +18,19 @@ TEST_F(TestCalculator, ShouldWorksWithSimpleStringStream)
 
     dataStream >> calculator_;
     std::string output = testing::internal::GetCapturedStdout();
-    ASSERT_EQ("4 ", output);
+    ASSERT_EQ("4.0 ", output);
 }
+
+TEST_F(TestCalculator, ShouldWorksWithExampleDataInString)
+{
+    std::string data("3 5 m 8 m 6 m q");
+    std::istringstream dataStream(data);
+
+    dataStream >> calculator_;
+    std::string output = testing::internal::GetCapturedStdout();
+    ASSERT_EQ("4.0 5.0 5.5 ", output);
+}
+
+
+
+

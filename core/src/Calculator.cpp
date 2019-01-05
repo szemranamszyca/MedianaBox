@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 #include "../include/Calculator.hpp"
 
@@ -35,15 +36,15 @@ double Calculator::calculate() const
     }
 }
 
-void Calculator::dbgPrintMedianaBox()
-{
-    std::cout << "DEBUG PRINT: \n";
-    for(std::size_t i = 0; i < container_->size(); ++i)
-    {
-        std::cout << (*container_)[i] << " ";
-    }
-    std::cout << '\n';
-}
+// void Calculator::dbgPrintMedianaBox()
+// {
+//     std::cout << "DEBUG PRINT: \n";
+//     for(std::size_t i = 0; i < container_->size(); ++i)
+//     {
+//         std::cout << (*container_)[i] << " ";
+//     }
+//     std::cout << '\n';
+// }
 
 std::istream& operator>>(std::istream& input, Calculator& calculator)
 {
@@ -52,7 +53,7 @@ std::istream& operator>>(std::istream& input, Calculator& calculator)
     { 
         if (streamValue == "m")
         {
-            std::cout << calculator.calculate() << ' ';
+            std::cout << std::setprecision(1) << std::fixed << calculator.calculate() << ' ';
         }
         else if (streamValue == "q")
         {

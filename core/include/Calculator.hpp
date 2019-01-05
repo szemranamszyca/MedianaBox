@@ -15,7 +15,7 @@ public:
 
     void insert(int) override;
     double calculate() const override;
-    void dbgPrintMedianaBox();
+    // void dbgPrintMedianaBox();
 
     friend std::istream& operator>>(std::istream& in, const Calculator& lhs);
     
