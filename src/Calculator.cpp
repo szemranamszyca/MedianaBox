@@ -43,5 +43,26 @@ void Calculator::dbgPrintMedianaBox()
     }
     std::cout << '\n';
 }
-    
+
+std::istream& operator>>(std::istream& input, Calculator& calculator)
+{
+    std::string streamValue;
+    while(getline(input, streamValue, ' ')) 
+    { 
+        if (streamValue == "m")
+        {
+            std::cout << "Mediana is equal: " << calculator.calculate() << '\n';
+        }
+        else if (streamValue == "q")
+        {
+            std::cout << "END!" << '\n';
+        }
+        else
+        {
+            calculator.insert(std::stoi(streamValue));
+        }
+    } 
+    return input;
+}
+
 } // medianabox

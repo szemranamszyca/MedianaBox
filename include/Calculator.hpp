@@ -15,11 +15,15 @@ public:
     void insert(int) override;
     double calculate() const override;
     void dbgPrintMedianaBox();
+
+    friend std::istream& operator>>(std::istream& in, const Calculator& lhs);
     
     private:
         std::unique_ptr<containers::ISimpleContainer> container_; 
 };
-    
+
+std::istream& operator>>(std::istream& input, Calculator& calculator);
+
 } // medianabox
 
 #endif /* CALCULATOR_HPP */
