@@ -73,3 +73,4 @@ target_compile_options(project_warnings
 )
 
 add_subdirectory(testSimpleVec)
+add_subdirectory(testCalculator)

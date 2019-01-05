@@ -3,9 +3,10 @@
 
 #include <memory>
 #include "ICalulator.hpp"
-#include "../containers/include/ISimpleContainer.hpp"
+#include "../../containers/include/ISimpleContainer.hpp"
 
 namespace medianabox {
+namespace core {
 
 class Calculator : public ICalculator
 { 
@@ -24,6 +25,7 @@ public:
 
 std::istream& operator>>(std::istream& input, Calculator& calculator);
 
+} // core
 } // medianabox
 
 #endif /* CALCULATOR_HPP */

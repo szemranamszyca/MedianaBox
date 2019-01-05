@@ -2,6 +2,7 @@
 #define ICALCULATOR_HPP
 
 namespace medianabox {
+namespace core {
 
 class ICalculator
 {
@@ -11,6 +12,8 @@ class ICalculator
         virtual double calculate() const = 0;
 };
 
+} // core
 } // medianabox
+
 
 #endif /* ICALCULATOR_HPP */  

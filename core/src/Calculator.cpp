@@ -3,6 +3,7 @@
 #include "../include/Calculator.hpp"
 
 namespace medianabox {
+namespace core {
 
 Calculator::Calculator(std::unique_ptr<containers::ISimpleContainer> container) :
     container_(move(container))
@@ -65,4 +66,5 @@ std::istream& operator>>(std::istream& input, Calculator& calculator)
     return input;
 }
 
+} // core
 } // medianabox

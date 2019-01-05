@@ -48,12 +48,13 @@ set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
+add_subdirectory(core/src)
 add_subdirectory(containers/src)
 
-add_executable(MedianaBox ${PROJECT_SOURCE_DIR}/main.cpp src/Calculator.cpp)
+add_executable(MedianaBox ${PROJECT_SOURCE_DIR}/main.cpp)
 target_link_libraries(
     MedianaBox
-    PUBLIC SimpleVec
+    PUBLIC Calculator SimpleVec
     PRIVATE project_warnings --coverage
 )
 
