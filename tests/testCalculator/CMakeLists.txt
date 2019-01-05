@@ -1,10 +1,10 @@
 add_executable(TestCalculator main.cpp TestCalculator.cpp)      
 
-# configure_file(${CMAKE_CURRENT_SOURCE_DIR}/testSimple.data
-#     ${EXECUTABLE_OUTPUT_PATH} COPYONLY)
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/testSimple.data
+    DESTINATION ${EXECUTABLE_OUTPUT_PATH})
 
-# configure_file(${CMAKE_CURRENT_SOURCE_DIR}/testExample.data
-#     ${EXECUTABLE_OUTPUT_PATH} COPYONLY)
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/testExample.data
+    DESTINATION ${EXECUTABLE_OUTPUT_PATH})
 
 target_link_libraries(
     TestCalculator
@@ -16,4 +16,4 @@ target_link_libraries(
 )
 
 add_test(NAME TestCalculator
-COMMAND TestCalculator)
+COMMAND TestCalculator WORKING_DIRECTORY ${EXECUTABLE_OUTPUT_PATH})
