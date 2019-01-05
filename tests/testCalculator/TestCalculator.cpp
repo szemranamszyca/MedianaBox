@@ -1,3 +1,5 @@
+#include <fstream>
+
 #include "TestCalculator.hpp"
 #include "../../containers/include/SimpleVec.hpp"
 
@@ -21,6 +23,17 @@ TEST_F(TestCalculator, ShouldWorksWithSimpleStringStream)
     ASSERT_EQ("4.0 ", output);
 }
 
+TEST_F(TestCalculator, ShouldWorksWithSimpleFileStream)
+{
+    std::ifstream dataStream;
+    dataStream.open("testSimple.data");
+
+    dataStream >> calculator_;
+    std::string output = testing::internal::GetCapturedStdout();
+    ASSERT_EQ("4.0 ", output);
+    dataStream.close();
+}
+
 TEST_F(TestCalculator, ShouldWorksWithExampleDataInString)
 {
     std::string data("3 5 m 8 m 6 m q");
@@ -29,6 +42,17 @@ TEST_F(TestCalculator, ShouldWorksWithExampleDataInString)
     dataStream >> calculator_;
     std::string output = testing::internal::GetCapturedStdout();
     ASSERT_EQ("4.0 5.0 5.5 ", output);
+}
+
+TEST_F(TestCalculator, ShouldWorksWithExampleDataInFile)
+{
+    std::ifstream dataStream;
+    dataStream.open("testExample.data");
+
+    dataStream >> calculator_;
+    std::string output = testing::internal::GetCapturedStdout();
+    ASSERT_EQ("4.0 5.0 5.5 ", output);
+    dataStream.close();
 }
 
 

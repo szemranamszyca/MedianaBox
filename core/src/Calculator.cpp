@@ -50,7 +50,7 @@ std::istream& operator>>(std::istream& input, Calculator& calculator)
 {
     std::string streamValue;
     while(getline(input, streamValue, ' ')) 
-    { 
+    {
         if (streamValue == "m")
         {
             std::cout << std::setprecision(1) << std::fixed << calculator.calculate() << ' ';
