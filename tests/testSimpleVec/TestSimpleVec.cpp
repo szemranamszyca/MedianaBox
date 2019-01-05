@@ -78,10 +78,20 @@ TEST_F(TestSimpleVec, ShouldWorksCorectlyOnOneElement)
 TEST_F(TestSimpleVec, ShouldThrowIfGetIsOutOfRange)
 {
     simpleVec_.push_back(5);
-    ASSERT_THROW(simpleVec_.get(1), std::out_of_range);
+    ASSERT_THROW(simpleVec_.get(-1), std::out_of_range);
 }
 
 TEST_F(TestSimpleVec, ShouldThrowIfSetIsOutOfRange)
 {
     ASSERT_THROW(simpleVec_.set(3,0), std::out_of_range);
+}
+
+TEST_F(TestSimpleVec, ShouldThrowIfInsertIsOutOfRange)
+{
+    ASSERT_THROW(simpleVec_.insert(5,0), std::out_of_range);
+}
+
+TEST_F(TestSimpleVec, ShouldThrowIfOperatorIsOutOfRange)
+{
+    ASSERT_THROW(simpleVec_[0], std::out_of_range);
 }

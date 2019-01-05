@@ -39,6 +39,11 @@ void SimpleVec::set(int value, std::size_t index)
 
 void SimpleVec::insert(int value, std::size_t index)
 {
+    if (index >= vecSize_)
+    {
+        throw std::out_of_range("Range error");
+    }
+
     push_back(0);
     for(int i = vecSize_-1; i > index; i--)
     {
@@ -60,11 +65,21 @@ void SimpleVec::push_back(int value)
 
 int& SimpleVec::operator[](std::size_t index)
 {
+    if (index >= vecSize_)
+    {
+        throw std::out_of_range("Range error");
+    }
+
     return vecData_[index];
 }
 
 const int& SimpleVec::operator[](std::size_t index) const 
 {
+    if (index >= vecSize_)
+    {
+        throw std::out_of_range("Range error");
+    }
+    
     return vecData_[index];
 }
 
