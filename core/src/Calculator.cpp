@@ -52,11 +52,11 @@ std::istream& operator>>(std::istream& input, Calculator& calculator)
     { 
         if (streamValue == "m")
         {
-            std::cout << "Mediana is equal: " << calculator.calculate() << '\n';
+            std::cout << calculator.calculate() << ' ';
         }
         else if (streamValue == "q")
         {
-            std::cout << "END!" << '\n';
+            return input;
         }
         else
         {

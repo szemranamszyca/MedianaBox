@@ -10,7 +10,7 @@ class TestCalculator : public ::testing::Test
         TestCalculator();
         virtual ~TestCalculator();
         virtual void SetUp();
-    
+
         medianabox::core::Calculator calculator_;
 };
 
