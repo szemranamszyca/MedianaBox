@@ -51,6 +51,9 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 add_subdirectory(core/src)
 add_subdirectory(containers/src)
 
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/example.data
+    DESTINATION ${EXECUTABLE_OUTPUT_PATH})
+
 add_executable(MedianaBox ${PROJECT_SOURCE_DIR}/main.cpp)
 target_link_libraries(
     MedianaBox
