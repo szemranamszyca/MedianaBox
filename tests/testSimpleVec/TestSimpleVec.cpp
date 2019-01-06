@@ -109,3 +109,18 @@ TEST_F(TestSimpleVec, ShouldThrowIfOperatorIsOutOfRangeConstObject)
     const SimpleVec& simpleVecConst = simpleVec_;
     ASSERT_THROW(simpleVecConst[0], std::out_of_range);
 }
+
+TEST_F(TestSimpleVec, ShouldPerformDeepCopyOfObject)
+{
+    simpleVec_.push_back(5);
+    simpleVec_.push_back(10);
+    simpleVec_.push_back(15);
+    simpleVec_.push_back(20);
+    simpleVec_.push_back(25);
+    simpleVec_.push_back(30);
+    EXPECT_EQ(6, simpleVec_.size());
+
+    SimpleVec copyOfVec(simpleVec_);
+    ASSERT_FALSE(&simpleVec_[0] == &copyOfVec[0]);
+
+}

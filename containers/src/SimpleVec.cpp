@@ -12,6 +12,18 @@ SimpleVec::SimpleVec() :
     vecData_ = new int[vecCapacity_];
 }
 
+SimpleVec::SimpleVec(const SimpleVec& lhs)
+{
+    vecCapacity_ = lhs.vecCapacity_;
+    vecSize_ = lhs.vecSize_;
+
+    vecData_ = new int[vecCapacity_];
+    for(int i = 0; i < vecSize_; i++)
+    {
+        vecData_[i] =  lhs.vecData_[i];
+    }
+}
+
 SimpleVec::~SimpleVec()
 {
     delete[] vecData_;
