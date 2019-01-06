@@ -23,6 +23,20 @@ SimpleVec::SimpleVec(const SimpleVec& lhs)
         vecData_[i] =  lhs.vecData_[i];
     }
 }
+SimpleVec& SimpleVec::operator=(const SimpleVec& lhs)
+{
+    vecCapacity_ = lhs.vecCapacity_;
+    vecSize_ = lhs.vecSize_;
+    delete[] vecData_;
+
+    vecData_ = new int[vecCapacity_];
+    for(int i = 0; i < vecSize_; i++)
+    {
+        vecData_[i] =  lhs.vecData_[i];
+    }
+
+    return *this;
+}
 
 SimpleVec::~SimpleVec()
 {

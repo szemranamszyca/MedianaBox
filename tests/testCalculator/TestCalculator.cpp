@@ -64,7 +64,3 @@ TEST_F(TestCalculator, ShouldWorksWithExampleDataInFile)
     ASSERT_EQ("4.0 5.0 5.5 ", output);
     dataStream.close();
 }
-
-
-
-

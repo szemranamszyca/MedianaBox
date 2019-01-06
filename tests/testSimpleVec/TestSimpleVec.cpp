@@ -122,5 +122,21 @@ TEST_F(TestSimpleVec, ShouldPerformDeepCopyOfObject)
 
     SimpleVec copyOfVec(simpleVec_);
     ASSERT_FALSE(&simpleVec_[0] == &copyOfVec[0]);
+}
 
+TEST_F(TestSimpleVec, ShouldCallAssigmentOperator)
+{
+    simpleVec_.push_back(5);
+    simpleVec_.push_back(10);
+    EXPECT_EQ(2, simpleVec_.size());
+
+    SimpleVec secondSimpleVec;
+    secondSimpleVec.push_back(5);
+    secondSimpleVec.push_back(10);
+    secondSimpleVec.push_back(15);
+    EXPECT_EQ(3, secondSimpleVec.size());
+    ASSERT_EQ(15, secondSimpleVec[2]);
+
+    secondSimpleVec = simpleVec_;
+    ASSERT_THROW(secondSimpleVec[2], std::out_of_range);
 }

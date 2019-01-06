@@ -11,6 +11,10 @@ class SimpleVec : public ISimpleContainer
     public:
         SimpleVec();
         SimpleVec(const SimpleVec& lhs);
+        SimpleVec& operator=(const SimpleVec& lhs);
+        SimpleVec(SimpleVec&& lhs) = delete;
+        SimpleVec& operator=(SimpleVec&& lhs) = delete;
+
         virtual ~SimpleVec();
         int get(std::size_t) const override;
         void set(int, std::size_t) override;
