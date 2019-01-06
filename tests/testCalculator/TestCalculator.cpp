@@ -64,3 +64,13 @@ TEST_F(TestCalculator, ShouldWorksWithExampleDataInFile)
     ASSERT_EQ("4.0 5.0 5.5 ", output);
     dataStream.close();
 }
+
+TEST_F(TestCalculator, ShouldIgnoreIncorrectCharacters)
+{
+    std::string data("3 5 m 8 m 6 m dataCorrupted fda q");
+    std::istringstream dataStream(data);
+
+    dataStream >> calculator_;
+    std::string output = testing::internal::GetCapturedStdout();
+    ASSERT_EQ("4.0 5.0 5.5 ", output);
+}

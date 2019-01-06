@@ -61,7 +61,12 @@ std::istream& operator>>(std::istream& input, Calculator& calculator)
         }
         else
         {
-            calculator.insert(std::stoi(streamValue));
+            try
+            {
+                calculator.insert(std::stoi(streamValue));
+            }
+            catch (std::invalid_argument& e)
+            {}
         }
     } 
     return input;
