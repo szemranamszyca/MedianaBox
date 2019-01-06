@@ -20,6 +20,14 @@ TEST_F(TestSimpleVec, ShouldReturnSetElementUsingOperator)
     ASSERT_EQ(3, simpleVec_[0]);
 }
 
+TEST_F(TestSimpleVec, ShouldReturnSetElementUsingOperatorConstObject)
+{
+    simpleVec_.push_back(0);
+    simpleVec_.set(3,0);
+    const SimpleVec& simpleVecConst = simpleVec_;
+    ASSERT_EQ(3, simpleVecConst[0]);    
+}
+
 TEST_F(TestSimpleVec, ShouldPushBackAndReturnIt)
 {
     simpleVec_.push_back(5);

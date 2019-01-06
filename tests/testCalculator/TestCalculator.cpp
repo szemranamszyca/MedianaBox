@@ -13,6 +13,16 @@ void TestCalculator::SetUp()
     testing::internal::CaptureStdout();
 }
 
+TEST_F(TestCalculator, ShouldWorksWithEmptyStream)
+{
+    std::string data;
+    std::istringstream dataStream(data);
+
+    dataStream >> calculator_;
+    std::string output = testing::internal::GetCapturedStdout();
+    ASSERT_EQ("", output);
+}
+
 TEST_F(TestCalculator, ShouldWorksWithSimpleStringStream)
 {
     std::string data("5 2 4 m q");
