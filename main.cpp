@@ -6,6 +6,53 @@
 #include "core/include/Calculator.hpp"
 #include "containers/include/SimpleVec.hpp"
 
+
+// FOR MEDIANABOX2
+// #include <vector>
+// #include <iomanip>
+// #include <algorithm>
+
+// class MedianaBox2
+// {
+//     public:
+//     void process(std::istream& input)
+//     {
+//         std::string streamValue;
+//         while(getline(input, streamValue, ' ')) 
+//         {
+//             if (streamValue == "m")
+//             {
+//                 std::cout << std::setprecision(1) << std::fixed << calculate() << ' ';
+//             }
+//             else if (streamValue == "q")
+//             {
+//                 return;
+//             }
+//             else
+//             {
+//                 data_.push_back(std::stoi(streamValue));
+//             }
+//         } 
+//     }
+
+//     private:
+//         double calculate()
+//         {
+//             std::sort(data_.begin(), data_.end());
+//             auto size = data_.size();
+//             if (size % 2 != 0)
+//             {
+//                 return data_[size/2];
+//             }
+//             else
+//             {
+//                 return (data_[size/2] + data_[size/2-1])/2.0;
+//             }
+//         }
+//         std::vector<int> data_;
+// };
+
+
 int main()
 {
     std::cout << "Welcome to MedianaBox!\n";
