@@ -103,3 +103,9 @@ TEST_F(TestSimpleVec, ShouldThrowIfOperatorIsOutOfRange)
 {
     ASSERT_THROW(simpleVec_[0], std::out_of_range);
 }
+
+TEST_F(TestSimpleVec, ShouldThrowIfOperatorIsOutOfRangeConstObject)
+{
+    const SimpleVec& simpleVecConst = simpleVec_;
+    ASSERT_THROW(simpleVecConst[0], std::out_of_range);
+}
