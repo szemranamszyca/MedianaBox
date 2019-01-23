@@ -6,7 +6,7 @@
 namespace medianabox {
 namespace core {
 
-Calculator::Calculator(std::unique_ptr<containers::ISimpleContainer> container) :
+Calculator::Calculator(std::unique_ptr<containers::SimpleVec> container) :
     container_(move(container))
 {}
 
@@ -25,6 +25,7 @@ void Calculator::insert(int value)
 
 double Calculator::calculate() const
 {
+    // dbgPrintMedianaBox();
     auto size = container_->size();
     if (size % 2 != 0)
     {
@@ -36,12 +37,12 @@ double Calculator::calculate() const
     }
 }
 
-// void Calculator::dbgPrintMedianaBox()
+// void Calculator::dbgPrintMedianaBox() const
 // {
-//     std::cout << "DEBUG PRINT: \n";
-//     for(std::size_t i = 0; i < container_->size(); ++i)
+//     std::cout << "\nDEBUG PRINT: \n";
+//     for(auto it = container_->begin(); it != container_->end(); ++it)
 //     {
-//         std::cout << (*container_)[i] << " ";
+//         std::cout << *it << " ";
 //     }
 //     std::cout << '\n';
 // }
